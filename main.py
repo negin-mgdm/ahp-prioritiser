@@ -1,41 +1,39 @@
 import sqlite3
 
 
-def add_tasks(tasks):
+def add_tasks_to_db(tasks):
     db = sqlite3.connect("ToDoList")
     cursor = db.cursor()
     cursor.execute('''
-                CREATE TABLE IF NOT EXISTS Tasks(id INTEGER PRIMARY KEY, task TEXT)
+                CREATE TABLE IF NOT EXISTS Tasks(id INTEGER PRIMARY KEY, task TEXT, priority INTEGER)
                 ''')
-    cursor.executemany(''' INSERT INTO Tasks(task) VALUES(?)''', tasks)
+    cursor.executemany(
+        ''' INSERT INTO Tasks(task, priority) VALUES(?, ?)''', tasks,)
     db.commit()
     db.close()
 
 
-def main():
+def add_tasks():
     tasks = []
     while True:
         task = input(
             "Please add a task to the To Do List (enter 'end' to finish): ")
         if task == "end":
             break
-        tasks.append((task,))
+        tasks.append((task, 0,))
 
-    add_tasks(tasks)
+    add_tasks_to_db(tasks)
+
+
+def main():
+    text = ''' 
+    1. Add tasks 
+    2. Prioritise tasks
+    3. View tasks
+    '''
+    choice = input(text)
+    if choice == "1":
+        add_tasks()
 
 
 main()
-
-# def end_tasks():
-# end_command = input(
-#     "Please enter 'end' if you completed your To Do List: ")
-
-# db = sqlite3.connect("ToDoList")
-# cursor = db.cursor()
-
-# cursor.execute('''
-#                SELECT COUNT(*) FROM Tasks Where remove_task=?, (remove_task,)
-#                ''')
-
-# delete_tasks = input(
-# "Please enter the name of the task that you wish to remove from the To Do List: ")
