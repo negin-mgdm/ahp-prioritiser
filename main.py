@@ -64,6 +64,13 @@ def prioritise():
         update_priorities(tasks[i][0], priority[i])
 
 
+def view_tasks():
+    tasks = get_tasks()
+    sorted_tasks = sorted(tasks, key=lambda task: task[2], reverse=True)
+    for task in sorted_tasks:
+        print(f"{task[1]}")
+
+
 def main():
     text = ''' 
     1. Add tasks 
@@ -75,6 +82,8 @@ def main():
         add_tasks()
     elif choice == "2":
         prioritise()
+    elif choice == "3":
+        view_tasks()
 
 
 main()
