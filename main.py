@@ -71,13 +71,31 @@ def view_tasks():
         print(f"{task[1]}")
 
 
+def remove_tasks():
+
+    tasks = get_tasks()
+    for task in tasks:
+        print(f"{task[0]}: {task[1]}")
+
+    choice = input("Please enter the id of the task that you wish to remove: ")
+    id = int(choice)
+
+    db = sqlite3.connect("ToDoList")
+    cursor = db.cursor()
+    cursor.execute('''DELETE FROM Tasks WHERE id = ?
+                   ''', (id,))
+    db.commit()
+    db.close()
+
+
 def main():
     while True:
         text = ''' 
         1. Add tasks 
         2. Prioritise tasks
         3. View tasks
-        4. Exit
+        4. Remove tasks
+        5. Exit
         '''
         choice = input(text)
         if choice == "1":
@@ -87,6 +105,8 @@ def main():
         elif choice == "3":
             view_tasks()
         elif choice == "4":
+            remove_tasks()
+        elif choice == "5":
             break
 
 
