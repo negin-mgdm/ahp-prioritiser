@@ -72,18 +72,22 @@ def view_tasks():
 
 
 def main():
-    text = ''' 
-    1. Add tasks 
-    2. Prioritise tasks
-    3. View tasks
-    '''
-    choice = input(text)
-    if choice == "1":
-        add_tasks()
-    elif choice == "2":
-        prioritise()
-    elif choice == "3":
-        view_tasks()
+    while True:
+        text = ''' 
+        1. Add tasks 
+        2. Prioritise tasks
+        3. View tasks
+        4. Exit
+        '''
+        choice = input(text)
+        if choice == "1":
+            add_tasks()
+        elif choice == "2":
+            prioritise()
+        elif choice == "3":
+            view_tasks()
+        elif choice == "4":
+            break
 
 
 main()
