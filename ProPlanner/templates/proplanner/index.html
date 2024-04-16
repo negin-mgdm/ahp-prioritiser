@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tasks</th>
+      <th>Due Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <td>{{task.task}}</td>
+      <td>{{task.due_date}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
