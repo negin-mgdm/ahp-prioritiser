@@ -1,4 +1,5 @@
-<table class="table">
+{% extends "base.html" %} {% block content %}
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>Tasks</th>
@@ -8,9 +9,12 @@
   <tbody>
     {% for task in tasks %}
     <tr>
-      <td>{{task.task}}</td>
+      <td>
+        <a href="{% url 'tasks:detail' task.id %}">{{task.task}}</a>
+      </td>
       <td>{{task.due_date}}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+{% endblock %}
