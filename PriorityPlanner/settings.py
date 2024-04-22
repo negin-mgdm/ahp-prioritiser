@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ProPlanner.apps.ProplannerConfig'
+    'ProPlanner.apps.ProplannerConfig',
+    'api.apps.ApiConfig'
 ]
 
 MIDDLEWARE = [
