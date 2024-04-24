@@ -1,0 +1,8 @@
+{
+  "cSpell.words": [
+    "gunicorn",
+    "tastypie",
+    "whitenoise",
+    "wsgi"
+  ]
+}
