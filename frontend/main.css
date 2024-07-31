@@ -17,6 +17,10 @@ body {
     margin: 5px 0;
     width: 200px;
     box-sizing: border-box;
+    cursor: pointer; 
+}
+li.highlighted {
+    background-color: yellow; 
   }
   h1 {
     text-align: center;
