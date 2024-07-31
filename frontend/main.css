@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px 0;
+    width: 200px;
+    box-sizing: border-box;
+  }
+  h1 {
+    text-align: center;
+  }
+  .container {
+    text-align: center;
+  }
