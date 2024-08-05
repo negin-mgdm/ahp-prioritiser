@@ -31,3 +31,7 @@ h1 {
 .container {
   text-align: center;
 }
+#orderButton {
+  width: 100px;
+  height: 30px;
+}
