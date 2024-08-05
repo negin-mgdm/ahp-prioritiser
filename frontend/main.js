@@ -1,4 +1,8 @@
-let items = ["Cooking", "Studying", "Reading", "Walking", "Dancing"];
+let items = [{ id: "1", title: "Cooking", priority: 0 },
+{ id: "2", title: "Reading", priority: 0 },
+{ id: "3", title: "Studying", priority: 0 },
+{ id: "4", title: "Walking", priority: 0 },
+{ id: "5", title: "Dancing", priority: 0 }];
 
 let ul = document.getElementById("itemsList");
 
@@ -7,7 +11,7 @@ let draggedItem = null;
 
 for (let i = 0; i < items.length; i++) {
     let li = document.createElement("li");
-    li.textContent = items[i];
+    li.textContent = items[i].title;
     li.setAttribute('draggable', 'true');
 
     li.addEventListener("click", handleItemClick);
