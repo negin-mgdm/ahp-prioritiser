@@ -22,6 +22,16 @@ for (let i = 0; i < items.length; i++) {
     ul.appendChild(li);
 }
 
+document.getElementById('orderButton').addEventListener('click', function () {
+    document.getElementById('overlay').style.display = 'block';
+});
+
+document.getElementById('overlay').addEventListener('click', function (event) {
+    if (event.target === this) {
+        this.style.display = 'none';
+    }
+});
+
 function handleItemClick(event) {
     let li = event.target;
     if (li === currentlyHighlighted) {
