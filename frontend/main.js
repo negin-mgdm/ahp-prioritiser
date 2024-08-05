@@ -1,63 +1,17 @@
-let items = [{ id: 1, title: "Cooking", priority: 0 },
-{ id: 2, title: "Reading", priority: 0 },
-{ id: 3, title: "Studying", priority: 0 },
-{ id: 4, title: "Walking", priority: 0 },
-{ id: 5, title: "Dancing", priority: 0 }];
+let items = [{ id: 1, title: "Cooking", score: 0 },
+{ id: 2, title: "Reading", score: 0 },
+{ id: 3, title: "Studying", score: 0 },
+{ id: 4, title: "Walking", score: 0 },
+{ id: 5, title: "Dancing", score: 0 }];
 
 let choiceQueue = [];
-let itemsScore = {};
-
-function resetChoiceQueue(items) {
-    for (let i = 0; i < items.length; i++) {
-        for (let j = i + 1; j < items.length; j++) {
-            choiceQueue.push([items[i].id, items[j].id]);
-        }
-    }
-}
-resetChoiceQueue(items);
-console.log(choiceQueue);
 
 let ul = document.getElementById("itemsList");
 
 let currentlyHighlighted = null;
 let draggedItem = null;
 
-for (let i = 0; i < items.length; i++) {
-    let li = document.createElement("li");
-    li.textContent = items[i].title;
-    li.setAttribute('draggable', 'true');
-
-    li.addEventListener('click', handleItemClick);
-    li.addEventListener('dragstart', handleDragStart);
-    li.addEventListener('dragover', handleDragOver);
-    li.addEventListener('dragend', handleDragEnd);
-
-    ul.appendChild(li);
-}
-
-document.getElementById('orderButton').addEventListener('click', function () {
-    document.getElementById('overlay').style.display = 'block';
-    setOverlayOptions();
-});
-
-function setOverlayOptions() {
-    const choicePair = choiceQueue.pop();
-    const leftItemId = choicePair[0];
-    const rightItemId = choicePair[1];
-    const leftItem = findItemById(leftItemId);
-    const rightItem = findItemById(rightItemId);
-    const leftHalf = document.getElementById('leftHalf');
-    leftHalf.innerHTML = leftItem.title;
-    const rightHalf = document.getElementById('rightHalf');
-    rightHalf.innerHTML = rightItem.title;
-    if (choiceQueue.length == 0) {
-        document.getElementById('overlay').style.display = 'none';
-    }
-}
-
-function findItemById(id) {
-    return items.find(item => item.id === id);
-}
+displayItems();
 
 document.getElementById('overlay').addEventListener('click', function (event) {
     if (event.target === this) {
@@ -73,8 +27,81 @@ document.getElementById('rightHalf').addEventListener('click', function () {
     sideClicked('right');
 });
 
+
+document.getElementById('orderButton').addEventListener('click', function () {
+    document.getElementById('overlay').style.display = 'block';
+    resetChoiceQueue(items);
+    resetItemScores();
+    setOverlayOptions();
+});
+
+function resetChoiceQueue(items) {
+    choiceQueue = [];
+    for (let i = 0; i < items.length; i++) {
+        for (let j = i + 1; j < items.length; j++) {
+            choiceQueue.push([items[i].id, items[j].id]);
+        }
+    }
+}
+
+function displayItems() {
+    items.sort((a, b) => b.score - a.score);
+    ul.innerHTML = "";
+    for (let i = 0; i < items.length; i++) {
+        let li = document.createElement("li");
+        li.textContent = items[i].title;
+        li.setAttribute('draggable', 'true');
+
+        li.addEventListener('click', handleItemClick);
+        li.addEventListener('dragstart', handleDragStart);
+        li.addEventListener('dragover', handleDragOver);
+        li.addEventListener('dragend', handleDragEnd);
+
+        ul.appendChild(li);
+    }
+}
+
+function resetItemScores() {
+    items.forEach(x => {
+        x.score = 0;
+    });
+}
+
+function setOverlayOptions() {
+    const choicePair = choiceQueue.pop();
+    const leftItemId = choicePair[0];
+    const rightItemId = choicePair[1];
+    const leftItem = findItemById(leftItemId);
+    const rightItem = findItemById(rightItemId);
+    const leftHalf = document.getElementById('leftHalf');
+    leftHalf.innerHTML = leftItem.title;
+    leftHalf.setAttribute("itemId", leftItem.id);
+    const rightHalf = document.getElementById('rightHalf');
+    rightHalf.innerHTML = rightItem.title;
+    rightHalf.setAttribute("itemId", rightItem.id);
+    if (choiceQueue.length == 0) {
+        document.getElementById('overlay').style.display = 'none';
+        displayItems();
+    }
+}
+
+function findItemById(id) {
+    return items.find(item => item.id === id);
+}
+
 function sideClicked(side) {
-    console.log(`The ${side} half was clicked.`);
+    const leftHalf = document.getElementById('leftHalf');
+    const rightHalf = document.getElementById('rightHalf');
+    if (side == 'left') {
+        const id = parseInt(leftHalf.getAttribute("itemId"));
+        const item = findItemById(id);
+        item.score += 1;
+    } else {
+        const id = parseInt(rightHalf.getAttribute("itemId"));
+        const item = findItemById(id);
+        item.score += 1;
+    }
+
     setOverlayOptions();
 }
 
