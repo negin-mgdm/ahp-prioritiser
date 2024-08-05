@@ -32,6 +32,18 @@ document.getElementById('overlay').addEventListener('click', function (event) {
     }
 });
 
+document.getElementById('leftHalf').addEventListener('click', function () {
+    sideClicked('left');
+});
+
+document.getElementById('rightHalf').addEventListener('click', function () {
+    sideClicked('right');
+});
+
+function sideClicked(side) {
+    console.log(`The ${side} half was clicked.`);
+}
+
 function handleItemClick(event) {
     let li = event.target;
     if (li === currentlyHighlighted) {
