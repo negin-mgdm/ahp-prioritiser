@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create HTML List</title>
     <link rel="stylesheet" href="main.css" />
   </head>
-  <body>
+  <body class="dark-mode">
     <div class="container">
       <h1>My Items</h1>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" checked />
+        <span class="slider"></span>
+      </label>
       <ul id="itemsList"></ul>
       <button id="orderButton">Order</button>
     </div>
 
     <div id="overlay" class="overlay">
-      <div class="overlay-content">
+      <div class="overlay-content dark-mode">
         <div class="left-half" id="leftHalf">
           <p>Left Half Text</p>
         </div>

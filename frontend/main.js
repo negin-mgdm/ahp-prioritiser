@@ -13,6 +13,12 @@ let draggedItem = null;
 
 displayItems();
 
+
+document.getElementById('darkModeToggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    document.querySelector('.overlay-content').classList.toggle('dark-mode');
+});
+
 document.getElementById('overlay').addEventListener('click', function (event) {
     if (event.target === this) {
         this.style.display = 'none';
@@ -34,6 +40,7 @@ document.getElementById('orderButton').addEventListener('click', function () {
     resetItemScores();
     setOverlayOptions();
 });
+
 
 function resetChoiceQueue(items) {
     choiceQueue = [];
