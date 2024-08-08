@@ -1,13 +1,9 @@
 from django.db import models
-from django.utils import timezone
 
 
-class Tasks(models.Model):
-    task = models.CharField(max_length=1000)
-    due_date = models.DateTimeField(default=timezone.now)
+class Item(models.Model):
+    title = models.CharField(max_length=100)
+    score = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.task
-
-
-task = models.ForeignKey(Tasks, on_delete=models.CASCADE)
+        return self.title

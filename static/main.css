@@ -1,0 +1,166 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  padding-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px 0;
+  width: 200px;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+li.highlighted {
+  background-color: yellow;
+}
+
+li.dragging {
+  opacity: 0.5;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+
+#orderButton {
+  width: 100px;
+  height: 30px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 25%;
+  background-color: white;
+  display: flex;
+}
+
+.left-half,
+.right-half {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.left-half {
+  border-right: 1px solid #ddd;
+}
+
+.left-half p,
+.right-half p {
+  margin: 0;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode li {
+  border-color: rgba(255, 255, 255, 0.3); /* Faded border for dark mode */
+}
+
+body.dark-mode #itemsList {
+  border-color: rgba(255, 255, 255, 0.3); /* Faded border for dark mode */
+}
+
+.overlay-content.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+/* Toggle Switch Styles */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-container i {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #555;
+}
+
+body.dark-mode .toggle-container i {
+  color: white;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}

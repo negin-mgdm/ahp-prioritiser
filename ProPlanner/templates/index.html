@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-mode">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create HTML List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main.css' %}" />
+  </head>
+  <body class="dark-mode">
+    <div class="container">
+      <h1>My Items</h1>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle" checked />
+        <span class="slider"></span>
+      </label>
+      <ul id="itemsList"></ul>
+      <button id="orderButton">Order</button>
+    </div>
+
+    <div id="overlay" class="overlay">
+      <div class="overlay-content dark-mode">
+        <div class="left-half" id="leftHalf">
+          <p>Left Half Text</p>
+        </div>
+        <div class="right-half" id="rightHalf">
+          <p>Right Half Text</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="{% static 'main.js' %}"></script>
+  </body>
+</html>

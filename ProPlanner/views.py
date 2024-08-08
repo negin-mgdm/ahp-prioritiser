@@ -1,15 +1,12 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
-from .models import Tasks
-
-# Create your views here.
+from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Item
 
 
 def index(request):
-    tasks = Tasks.objects.all()
-    return render(request, 'proplanner/index.html', {'tasks': tasks})
+    return render(request, 'index.html')
 
 
-def detail(request, task_id):
-    task = get_object_or_404(Tasks, id=task_id)
-    return render(request, 'proplanner/detail.html', {'task': task})
+def get_items(request):
+    items = list(Item.objects.all().values())
+    return JsonResponse(items, safe=False)

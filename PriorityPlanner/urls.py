@@ -16,13 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.models import TaskResource
-from . import views
 
-task_resource = TaskResource()
 urlpatterns = [
-    path('', views.home),
     path('admin/', admin.site.urls),
-    path('ProPlanner/', include('ProPlanner.urls')),
-    path('api/', include(task_resource.urls))
+    path('', include('ProPlanner.urls')),
 ]
