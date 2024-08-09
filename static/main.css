@@ -130,8 +130,8 @@ body.dark-mode .toggle-container i {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 47px;
+  height: 20px;
 }
 
 .switch input {
@@ -155,8 +155,8 @@ body.dark-mode .toggle-container i {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 13px;
+  width: 13px;
   left: 4px;
   bottom: 4px;
   background-color: white;
