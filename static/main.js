@@ -33,9 +33,11 @@ function registerEventListeners() {
     document.getElementById('rightHalf').addEventListener('click', function () {
         sideClicked('right');
     });
+
+    document.getElementById('randomiseButton').addEventListener('click', getItems);
 }
 
-document.addEventListener('DOMContentLoaded', async function () {
+async function getItems() {
     try {
         const response = await fetch('/api/items/');
         const data = await response.json();
@@ -44,6 +46,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     } catch (error) {
         console.error('Error fetching items:', error);
     }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    getItems();
     registerEventListeners();
 });
 

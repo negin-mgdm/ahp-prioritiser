@@ -43,6 +43,11 @@ h1 {
   height: 30px;
 }
 
+#randomiseButton {
+  width: 100px;
+  height: 30px;
+}
+
 .overlay {
   display: none;
   position: fixed;
