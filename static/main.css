@@ -5,6 +5,8 @@ body {
   height: 100vh;
   margin: 0;
   padding-top: 20px;
+  font-family: "Segoe", "Segoe UI", "Arial", "sans-serif";
+  background-color: #e7ecf0;
 }
 
 ul {
@@ -14,12 +16,14 @@ ul {
 }
 
 li {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 10px;
-  margin: 5px 0;
+  margin: 4px 0;
   width: 200px;
   box-sizing: border-box;
   cursor: grab;
+  border-radius: 10px;
+  background-color: #f5f5f5;
 }
 
 li.highlighted {
@@ -98,6 +102,7 @@ body.dark-mode {
 
 body.dark-mode li {
   border-color: rgba(255, 255, 255, 0.3); /* Faded border for dark mode */
+  background-color: #252423;
 }
 
 body.dark-mode #itemsList {
@@ -165,7 +170,7 @@ body.dark-mode .toggle-container i {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #196be5;
 }
 
 input:checked + .slider:before {
