@@ -1,1 +1,1 @@
-web: gunicorn PriorityPlanner.wsgi
+web: gunicorn PriorityPlanner.wsgi --log-file -
