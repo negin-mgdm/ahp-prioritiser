@@ -6,17 +6,25 @@
     <title>Create HTML List</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'main.css' %}" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body class="dark-mode">
-    <div class="container">
-      <h1>My Items</h1>
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle" checked />
-        <span class="slider"></span>
-      </label>
-      <ul id="itemsList"></ul>
-      <button id="orderButton">Order</button>
-      <button id="randomiseButton">Randomise</button>
+    <div class="container d-flex flex-column align-items-center">
+      <h1>Rank Below by Preference</h1>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle" checked />
+          <span class="slider"></span>
+        </label>
+      </div>
+      <ul id="itemsList" class="list-unstyled"></ul>
+      <div class="d-flex justify-content-center">
+        <button id="orderButton" class="btn btn-primary m-2">Order</button>
+        <button id="randomiseButton" class="btn btn-info m-2">Randomise</button>
+      </div>
     </div>
 
     <div id="overlay" class="overlay">
