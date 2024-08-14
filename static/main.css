@@ -39,18 +39,34 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Slightly less transparent matte effect */
+  backdrop-filter: blur(1px); /* Even more reduced matte effect */
   z-index: 1;
 }
 
 .overlay-content {
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30%;
-  height: 25%;
-  background-color: white;
+  width: 350px;
+  height: 250px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Less transparent glass effect background */
+  border-radius: 15px; /* Rounded edges */
+  backdrop-filter: blur(2px) saturate(120%); /* Even more reduced blur */
+  -webkit-backdrop-filter: blur(2px) saturate(120%); /* For Safari */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
 }
 
@@ -64,7 +80,7 @@ h1 {
 }
 
 .left-half {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .left-half p,
@@ -88,7 +104,7 @@ body.dark-mode #itemsList {
 }
 
 .overlay-content.dark-mode {
-  background-color: #333;
+  background: rgba(51, 51, 51, 0.5); /* Less transparent in dark mode */
   color: white;
 }
 
