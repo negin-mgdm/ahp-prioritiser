@@ -1,14 +1,15 @@
-
 # List Prioritisation Using AHP (Analytic Hierarchy Process)
 
 ### [🚀 **Live Demo** ](https://pro-planner-07d8f7f68403.herokuapp.com/)
 
 ## Overview
+
 This project provides a web-based tool to prioritise a list of items using the Analytic Hierarchy Process (AHP). AHP is a structured technique for organising and analysing complex decisions, which involves breaking down a problem into a hierarchy, comparing the elements pairwise, and synthesising the results to determine priorities. This web app demonstrates this in a simplified process, allowing users to rank a given set of items based on their preference efficiently.
 
 ## Features
+
 - AHP Pairwise Comparisons: The tool performs pairwise comparisons of items to derive priority scores.
-- Randomide Items: Randomly shuffle items of a random category to introduce objectivity in decision-making.
+- Randomise Items: Randomly shuffle items of a random category to introduce objectivity in decision-making.
 - Item Ranking Interface: Drag-and-drop interface to reorder tasks by preference.
 - Dark Mode: Toggle between light and dark modes for a better user experience.
 
@@ -21,14 +22,16 @@ Rank by Preference: Click on "Order" to start the AHP ranking process. You will 
 
 - Pairwise Comparisons: The AHP algorithm prompts the user to compare items two at a time, asking which one is more important. Based on these comparisons, it assigns a score to each item.
 - Item Ranking: After completing the comparisons, items are ranked according to their cumulative scores, reflecting their priority.
-  
+
 ## Technologies Used
 
 - **HTML/CSS:** For structuring and styling the user interface.
+- **Bootstrap:** For responsive design and UI components.
 - **JavaScript:** To handle user interactions and implement the AHP algorithm.
 - **Python:** Handles the backend logic and processing.
-- **Django:** A web application framework utilised to organise and manage the backend code.
-- **Bootstrap:** For responsive design and UI components.
+- **Django:** The web application framework utilised to organise and manage the backend code.
+- **PostgreSQL:** Database option used for data storage and information retrieval.
+- **Heroku:** The app is configured for deployment on Heroku, as configured by the a Procfile.
 
 ## License
 
