@@ -35,7 +35,7 @@ Rank by Preference: Click on "Order" to start the AHP ranking process. You will 
 
 ## License
 
-This work is licensed under Attribution-NonCommercial 4.0 International. See the [LICENSE](https://github.com/negin-mgdm/ahp-prioritiser/blob/master/LICENSE.md) file for details.
+This work is licensed under CC BY-NC 4.0. See the [LICENSE](https://github.com/negin-mgdm/ahp-prioritiser/blob/master/LICENSE.md) file for details.
 
 ## Resources
 
