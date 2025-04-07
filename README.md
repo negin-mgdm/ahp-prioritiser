@@ -1,6 +1,6 @@
 # List Prioritisation Using AHP (Analytic Hierarchy Process)
 
-### [🚀 **Live Demo** ](https://pro-planner-07d8f7f68403.herokuapp.com/)
+### [🚀 **Live Demo** ](https://ahp-prioritiser-67f55bdacc53.herokuapp.com/)
 
 ## Overview
 
